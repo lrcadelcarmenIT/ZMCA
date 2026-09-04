@@ -1,0 +1,15 @@
+{
+  "name": "zmca-machinery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack website for ZMCA Machinery & Services",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "test": "node --test",
+    "validate": "node scripts/validate.js",
+    "check": "node --check app.js && node --check lib/server.js && node --check api/contact.js && node --check api/recommend.js && node --check api/health.js && node scripts/validate.js && node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
