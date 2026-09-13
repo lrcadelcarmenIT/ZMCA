@@ -97,16 +97,24 @@
   }
 
   const showcaseVideo = $("#showcaseVideo");
+  const comparisonVideo = $("#comparisonVideo");
   const videoControl = $("#videoControl");
   let videoManuallyPaused = false;
   let motionPaused = reducedMotion;
   let videoInView = false;
+  let comparisonInView = false;
   const allowAutoplay = !reducedMotion && !navigator.connection?.saveData;
   const updateVideoPlayback = () => {
-    if (!showcaseVideo) return;
-    if (videoInView && !document.hidden && !motionPaused && !videoManuallyPaused && allowAutoplay) {
-      showcaseVideo.play().catch(() => {});
-    } else showcaseVideo.pause();
+    if (showcaseVideo) {
+      if (videoInView && !document.hidden && !motionPaused && !videoManuallyPaused && allowAutoplay) {
+        showcaseVideo.play().catch(() => {});
+      } else showcaseVideo.pause();
+    }
+    if (comparisonVideo) {
+      if (comparisonInView && !document.hidden && !motionPaused && allowAutoplay) {
+        comparisonVideo.play().catch(() => {});
+      } else comparisonVideo.pause();
+    }
   };
   if (showcaseVideo && videoControl) {
     showcaseVideo.controls = false;
@@ -130,8 +138,14 @@
         updateVideoPlayback();
       }, { threshold: .15 }).observe(showcaseVideo);
     }
-    document.addEventListener("visibilitychange", updateVideoPlayback);
   }
+  if (comparisonVideo && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      comparisonInView = entry.isIntersecting;
+      updateVideoPlayback();
+    }, { threshold: .2 }).observe(comparisonVideo);
+  }
+  document.addEventListener("visibilitychange", updateVideoPlayback);
 
   $("#motionControl")?.addEventListener("click", (event) => {
     motionPaused = !motionPaused;

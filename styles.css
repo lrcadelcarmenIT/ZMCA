@@ -34,7 +34,9 @@ button:disabled{cursor:default;opacity:.45;transform:none}
 .prep-comparison{border:1px solid rgba(255,255,255,.24);background:#191a1d}
 .comparison-images{height:320px;position:relative;overflow:hidden;background:#fff}
 .comparison-images img{width:100%;height:100%;object-fit:cover}
+.comparison-images video{width:100%;height:100%;object-fit:cover;object-position:50% 56%;background:#111215;pointer-events:none}
 .comparison-machine{object-position:50% 48%}
+.comparison-video{object-position:50% 56%}
 .comparison-manual{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--split)) 0 0)}
 .comparison-manual img{object-position:left 18%;transform:scale(1.4);transform-origin:left 20%}
 .comparison-label{position:absolute;top:15px;padding:8px 10px;background:var(--ink);color:white;font:500 9px var(--mono);letter-spacing:.08em}
