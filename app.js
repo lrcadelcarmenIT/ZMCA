@@ -32,7 +32,7 @@
         aura.style.opacity = "1";
       });
     });
-    $$("a, button, .tilt-card").forEach((item) => {
+    $$("a, button").forEach((item) => {
       item.addEventListener("pointerenter", () => aura.classList.add("active"));
       item.addEventListener("pointerleave", () => aura.classList.remove("active"));
     });
@@ -78,22 +78,6 @@
     });
   } else {
     reveals.forEach((element) => element.classList.add("visible"));
-  }
-
-  if (finePointer && !reducedMotion) {
-    $$(".tilt-card").forEach((card) => {
-      let tiltFrame = 0;
-      card.addEventListener("pointermove", (event) => {
-        if (tiltFrame) cancelAnimationFrame(tiltFrame);
-        tiltFrame = requestAnimationFrame(() => {
-          const rect = card.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width - 0.5;
-          const y = (event.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = `perspective(1000px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 7).toFixed(2)}deg) translateZ(8px)`;
-        });
-      });
-      card.addEventListener("pointerleave", () => { cancelAnimationFrame(tiltFrame); card.style.transform = ""; });
-    });
   }
 
   const showcaseVideo = $("#showcaseVideo");
