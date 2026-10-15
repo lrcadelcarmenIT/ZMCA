@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="Answer 4 quick inputs and get a practical equipment starting plan from ZMCA Machinery Trading.">
+  <meta property="og:title" content="ZMCA Machinery Trading">
+  <meta property="og:description" content="Your food business partner—from the first batch to the next production target.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.zmca.store/assets/media/campaign-poster.webp">
+  <meta property="og:url" content="https://www.zmca.store/finder.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.zmca.store/finder.html">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Machine Finder | ZMCA Machinery Trading</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="cursor-aura" id="cursorAura" aria-hidden="true"></div>
+  <div class="scroll-meter" aria-hidden="true"><span id="scrollMeter"></span></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="/index.html" aria-label="ZMCA Machinery Trading home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M22 3l4 5.4 6.6-1 1 6.6 6 3-3 6 3 6-6 3-1 6.6-6.6-1L22 42l-4-5.4-6.6 1-1-6.6-6-3 3-6-3-6 6-3 1-6.6 6.6 1L22 3Z"/><circle cx="22" cy="22" r="7"/></svg></span>
+        <span><strong>ZMCA</strong><small>Machinery Trading</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation"><span></span><span></span></button>
+      <div class="nav-links" id="navLinks">
+        <a href="/machines.html">Machines</a><a href="/finder.html">Machine finder</a><a href="/contact.html">Contact</a>
+      </div>
+      <a class="nav-call" href="tel:+639204335014"><span>Talk to ZMCA</span><b>0920 433 5014</b></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero shell" aria-labelledby="finder-page-title">
+      <p class="section-kicker reveal">Machine finder</p>
+      <h1 id="finder-page-title" class="reveal">You don't need to know the machine name.</h1>
+      <p class="reveal">Start with the food, the current bottleneck, and the output you want. We'll turn that into a practical starting plan.</p>
+    </section>
+    <section class="finder-section" id="finder" aria-labelledby="finder-title">
+      <div class="shell finder-grid"><div class="finder-intro reveal"><p class="section-kicker">03 / Machine finder</p><h2 id="finder-title">You don’t need to know the machine name.</h2><p>Start with the food, the current bottleneck, and the output you want. We’ll turn that into a practical starting plan.</p><div class="finder-sequence" aria-hidden="true"><span>PRODUCT</span><i></i><span>PROCESS</span><i></i><span>OUTPUT</span></div></div>
+        <div class="finder-console reveal"><form id="finderForm"><div class="console-label"><span>BUILD YOUR STARTING PLAN</span><b>4 INPUTS / 60 SEC</b></div><div class="field-grid"><label><span>What do you produce? *</span><select name="product" required><option value="">Select a product type</option><option value="bakery">Bread, pastry, or bakery</option><option value="beverage">Beverage or liquid</option><option value="sauce">Sauce, paste, or condiment</option><option value="snack">Snack, chips, or dry goods</option><option value="meat">Meat or processed protein</option><option value="frozen">Frozen or chilled food</option><option value="other">Something else</option></select></label><label><span>Current production stage *</span><select name="scale" required><option value="">Select current scale</option><option value="starter">Starting or small-batch</option><option value="growing">Growing commercial operation</option><option value="industrial">Established industrial line</option></select></label><label><span>What needs improvement? *</span><select name="need" required><option value="">Select the priority</option><option value="processing">Processing speed or consistency</option><option value="packaging">Packing speed or quality</option><option value="full-line">A complete production line</option><option value="unsure">Not sure yet</option></select></label><label><span>Target output</span><input name="output" type="text" maxlength="80" placeholder="e.g. 500 packs per day"></label></div><button class="button button-primary console-submit" type="submit">Build my plan <span>↗</span></button><p class="form-note">Initial guidance only. Final selection follows a proper product and site review.</p></form><div class="finder-result" id="finderResult" hidden aria-live="polite"><div class="result-head"><span>STARTING PLAN READY</span><button type="button" id="finderReset">Start over</button></div><h3 id="resultTitle"></h3><p id="resultSummary"></p><div class="recommendation-list" id="recommendationList"></div><a class="button button-primary" href="#contact" id="useRecommendation">Request a quote for this plan</a></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-top"><a class="brand footer-brand" href="/index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 44"><path d="M22 3l4 5.4 6.6-1 1 6.6 6 3-3 6 3 6-6 3-1 6.6-6.6-1L22 42l-4-5.4-6.6 1-1-6.6-6-3 3-6-3-6 6-3 1-6.6 6.6 1L22 3Z"/><circle cx="22" cy="22" r="7"/></svg></span><span><strong>ZMCA</strong><small>Machinery Trading</small></span></a><h2>YOUR FOOD<br>BUSINESS PARTNER.</h2></div><div class="shell footer-bottom"><span>© <b id="year"></b> ZMCA MACHINERY TRADING</span><nav class="footer-links" aria-label="Footer"><a href="/machines.html">Machines</a><a href="/finder.html">Machine finder</a><a href="/contact.html">Contact</a></nav><span>QUEZON CITY · PHILIPPINES</span><a class="to-top" href="#top">Back to top ↑</a></div></footer>
+  <a class="mobile-cta" href="/contact.html">Inquire now <span>↗</span></a><noscript><div class="noscript">JavaScript is disabled. Contact ZMCA at <a href="tel:+639204335014">0920 433 5014</a>.</div></noscript><script src="/app.js" defer></script>
+</body>
+</html>
