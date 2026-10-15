@@ -23,7 +23,7 @@ const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
 
 // Per-page required markers.
 const markers = {
-  "index.html": ['id="main"', "application/ld+json", 'id="hero-title"', 'class="hero-plain"', 'class="cat-list"', 'class="feature-plain"'],
+  "index.html": ['id="main"', "application/ld+json", 'id="hero-title"', 'class="hero-plain"', 'class="cat-list"', 'class="why-grid"'],
   "machines.html": ['id="main"', 'id="equipment"', 'id="productSwitcher"'],
   "finder.html": ['id="main"', 'id="finderForm"', 'aria-live="polite"'],
   "contact.html": ['id="main"', 'id="contactForm"', 'aria-live="polite"'],
