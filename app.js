@@ -81,23 +81,16 @@
   }
 
   const showcaseVideo = $("#showcaseVideo");
-  const comparisonVideo = $("#comparisonVideo");
   const videoControl = $("#videoControl");
   let videoManuallyPaused = false;
   let motionPaused = reducedMotion;
   let videoInView = false;
-  let comparisonInView = false;
   const allowAutoplay = !reducedMotion && !navigator.connection?.saveData;
   const updateVideoPlayback = () => {
     if (showcaseVideo) {
       if (videoInView && !document.hidden && !motionPaused && !videoManuallyPaused && allowAutoplay) {
         showcaseVideo.play().catch(() => {});
       } else showcaseVideo.pause();
-    }
-    if (comparisonVideo) {
-      if (comparisonInView && !document.hidden && !motionPaused && allowAutoplay) {
-        comparisonVideo.play().catch(() => {});
-      } else comparisonVideo.pause();
     }
   };
   if (showcaseVideo && videoControl) {
@@ -123,12 +116,6 @@
       }, { threshold: .15 }).observe(showcaseVideo);
     }
   }
-  if (comparisonVideo && "IntersectionObserver" in window) {
-    new IntersectionObserver(([entry]) => {
-      comparisonInView = entry.isIntersecting;
-      updateVideoPlayback();
-    }, { threshold: .2 }).observe(comparisonVideo);
-  }
   document.addEventListener("visibilitychange", updateVideoPlayback);
 
   $("#motionControl")?.addEventListener("click", (event) => {
@@ -137,10 +124,6 @@
     event.currentTarget.setAttribute("aria-pressed", String(motionPaused));
     event.currentTarget.textContent = motionPaused ? "Resume motion" : "Pause motion";
     updateVideoPlayback();
-  });
-  $("#prepSlider")?.addEventListener("input", (event) => {
-    $("#prepComparison")?.style.setProperty("--split", `${event.target.value}%`);
-    event.target.setAttribute("aria-valuetext", `${event.target.value} percent manual preparation visible`);
   });
 
   const switcher = $("#productSwitcher");
