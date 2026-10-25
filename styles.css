@@ -4,7 +4,7 @@
   --ink:#F2F3F5; --text:#F2F3F5; --muted:#A5A8AE; --muted-on-dark:#A5A8AE; --border:#3A3A3A;
   --accent:#1E5BFF; --accent-light:#2F6BFF; --accent-soft:rgba(30,91,255,.14); --accent-glow:rgba(30,91,255,.45);
   --dark:#161616; --radius:14px; --shadow:0 8px 30px rgba(0,0,0,.45);
-  --shell:min(1200px,calc(100vw - 36px));
+  --shell:min(1200px,calc(100% - 36px));
   --font-body:"Inter","Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --font-head:"Montserrat","Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.28,.11,.32,1);
@@ -12,6 +12,7 @@
   --gear-white:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><mask id='h'><rect width='48' height='48' fill='white'/><circle cx='24' cy='24' r='5.5' fill='black'/></mask><g mask='url(%23h)' fill='%23FFFFFF'><circle cx='24' cy='24' r='14'/><rect x='21' y='2' width='6' height='7' rx='1.5'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(45 24 24)'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(90 24 24)'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(135 24 24)'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(180 24 24)'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(225 24 24)'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(270 24 24)'/><rect x='21' y='2' width='6' height='7' rx='1.5' transform='rotate(315 24 24)'/></g></svg>");
 }
 *{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
 body{margin:0;color:var(--text);background:var(--bg);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
@@ -65,7 +66,7 @@ button:disabled{cursor:default;opacity:.4}
 .page-hero::before,.company-hero::before{content:"";position:absolute;inset:-48px;pointer-events:none;background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'><g fill='none' stroke='%231E5BFF' stroke-opacity='.14'><path d='M0 60 H120 V140 H240'/><path d='M40 0 V100 H160'/><path d='M200 240 V180 H120'/></g><g fill='%231E5BFF' fill-opacity='.2'><circle cx='120' cy='60' r='3'/><circle cx='160' cy='100' r='3'/><circle cx='120' cy='180' r='3'/></g></svg>");background-size:240px 240px;animation:hero-drift 60s linear infinite}
 .page-hero::after,.company-hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(640px 420px at 82% -10%,rgba(30,91,255,.22),transparent 70%)}
 .page-hero .shell,.company-hero .shell{position:relative;z-index:1}
-.hero-circuit{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero-circuit{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:0}
 .circuit-trace{stroke-dasharray:100;stroke-dashoffset:100;animation:circuit-draw 2.2s var(--ease) forwards}
 .circuit-trace:nth-of-type(2){animation-delay:.3s}
 .circuit-trace:nth-of-type(3){animation-delay:.6s}
@@ -183,7 +184,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 .consent{display:flex;align-items:flex-start;gap:10px}
 .consent input{width:18px;height:18px;flex:0 0 auto;accent-color:var(--accent)}
 .consent span{font-size:12px;font-weight:400;color:var(--muted)}
-.honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.honeypot{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
 .form-status{display:none;padding:14px 16px;border-radius:12px;font-size:13px}
 .form-status.show{display:block}
 .form-status.success{color:#86EFAC;background:rgba(34,197,94,.14)}
@@ -207,7 +208,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 
 /* ---------- Responsive: tablet and desktop ---------- */
 @media(min-width:721px){
-  :root{--shell:min(1200px,calc(100vw - 48px))}
+  :root{--shell:min(1200px,calc(100% - 48px))}
   body{font-size:17px}
   .nav{min-height:64px;gap:34px}
   .brand-logo{height:48px}
