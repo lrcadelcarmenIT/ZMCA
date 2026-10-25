@@ -18,6 +18,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <style>
+    .units-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
+    .units-grid .machine-card{flex:none}
+    .units-grid .machine-photo{height:340px;background:#f5f5f7}
+    .units-grid .machine-photo img{object-fit:contain}
+    @media (max-width:720px){.units-grid{grid-template-columns:1fr}}
+  </style>
   <title>Equipment & Bowl Chopper | ZMCA Machinery Trading</title>
 </head>
 <body>
@@ -172,6 +179,19 @@
         </div>
         <div class="catalog-cta reveal">
           <a class="btn-solid" href="/contact.html">Ask about any machine on this list</a>
+        </div>
+      </div>
+    </section>
+    <section class="equipment-section" id="units" aria-labelledby="units-title">
+      <div class="shell">
+        <p class="section-kicker reveal">Actual units</p>
+        <h2 id="units-title" class="reveal">Units with photos.</h2>
+        <p class="reveal">Photos of actual ZMCA units. Ask us about price and availability.</p>
+        <div class="units-grid">
+          <article class="machine-card" data-interest="Vacuum meat tumbler"><span>MEAT PROCESSING</span><h3>Vacuum meat tumbler</h3><div class="machine-photo"><img src="/assets/media/vacuum-tumbler.jpg" alt="Stainless vacuum meat tumbler with digital control panel" loading="lazy"></div><p>Large stainless drum for marinating and tumbling meat, with a digital control panel.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
+          <article class="machine-card" data-interest="Meatball forming machine"><span>FORMING</span><h3>Meatball forming machine</h3><div class="machine-photo"><img src="/assets/media/meatball-machine.jpg" alt="Stainless meatball forming machines with top bowls" loading="lazy"></div><p>Tabletop stainless units that form meatballs from paste. Six units shown.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
+          <article class="machine-card" data-interest="4-door upright chiller"><span>REFRIGERATION</span><h3>4-door upright chiller</h3><div class="machine-photo"><img src="/assets/media/upright-chiller-4door.jpg" alt="Four-door upright commercial chiller with digital controller" loading="lazy"></div><p>Tall commercial chiller with four doors and a digital controller.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
+          <article class="machine-card" data-interest="Commercial chillers"><span>REFRIGERATION</span><h3>Commercial chillers</h3><div class="machine-photo"><img src="/assets/media/commercial-chillers.jpg" alt="Upright and undercounter commercial chillers in a warehouse" loading="lazy"></div><p>Upright and undercounter chillers for cold storage and prep lines.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
         </div>
       </div>
     </section>
