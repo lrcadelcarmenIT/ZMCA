@@ -23,6 +23,9 @@
     .units-grid .machine-card{flex:none}
     .units-grid .machine-photo{height:340px;background:#f5f5f7}
     .units-grid .machine-photo img{object-fit:contain}
+    .units-video{width:100%;border-radius:20px;display:block;background:#000;margin-bottom:28px}
+    .feature-story-grid{grid-template-columns:1fr}
+    .shell>.story-media{margin-top:32px}
     @media (max-width:720px){.units-grid{grid-template-columns:1fr}}
   </style>
   <title>Equipment & Bowl Chopper | ZMCA Machinery Trading</title>
@@ -56,10 +59,6 @@
       <div class="feature-story">
         <div class="shell feature-story-grid">
                 <div class="story-copy reveal"><p class="section-kicker">01 / Featured machine</p><h2 id="feature-title">Stop building a business around a chopping board.</h2><p>A growing food operation cannot depend on slow, uneven prep forever. The ZMCA bowl chopper handles meat, vegetables, seafood, siomai filling, and sisig with faster, more consistent results.</p><ul class="proof-list"><li><span>01</span> Faster, more efficient chopping</li><li><span>02</span> Consistent texture across batches</li><li><span>03</span> Less repetitive manual labor</li><li><span>04</span> Practical for commercial production</li></ul></div>
-                <div class="story-visuals reveal">
-                  <div class="story-media"><video id="showcaseVideo" controls muted loop playsinline preload="none" poster="/assets/media/zmca-chopping-poster.jpg" aria-label="ZMCA bowl chopper chopping meat in operation"><source src="/assets/media/zmca-chopping.mp4" type="video/mp4"></video><button class="video-control" id="videoControl" type="button" aria-label="Play showcase video"><span></span> PLAY</button><div class="media-caption"><b>ZMCA / LIVE CUT</b><span>Watch the bowl chopper in action</span></div></div>
-                  
-                </div>
               </div>
       </div>
       <div class="feature-uses shell">
@@ -75,8 +74,8 @@
     </section>
     <section class="equipment-section" id="units" aria-labelledby="units-title">
       <div class="shell">
-        <p class="section-kicker reveal">Actual units</p>
-        <h2 id="units-title" class="reveal">Units with photos.</h2>
+        <video class="units-video reveal" controls playsinline preload="metadata" poster="/assets/media/bowl-chopper-taiwan-closed.jpg" aria-label="Taiwan made full-cover bowl chopper in operation"><source src="/assets/media/bowl-chopper-taiwan.mp4" type="video/mp4"></video>
+        <h2 id="units-title" class="reveal">Actual units.</h2>
         <p class="reveal">Photos of actual ZMCA units. Ask us about price and availability.</p>
         <div class="units-grid">
           <article class="machine-card" data-interest="Vacuum meat tumbler"><span>MEAT PROCESSING</span><h3>Vacuum meat tumbler</h3><div class="machine-photo"><img src="/assets/media/vacuum-tumbler.jpg" alt="Stainless vacuum meat tumbler with digital control panel" loading="lazy"></div><p>Large stainless drum for marinating and tumbling meat, with a digital control panel.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
@@ -88,6 +87,7 @@
           <article class="machine-card" data-interest="Commercial meat slicer"><span>MEAT PROCESSING</span><h3>Commercial meat slicer</h3><div class="machine-photo"><img src="/assets/media/meat-slicer.jpg" alt="Stainless commercial meat slicer with round blade and carriage" loading="lazy"></div><p>Gravity-feed slicer with round blade and adjustable thickness.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
           <article class="machine-card" data-interest="Meat mixer"><span>MEAT PROCESSING</span><h3>Meat mixer</h3><div class="machine-photo"><img src="/assets/media/meat-mixer.jpg" alt="Stainless commercial meat mixer with control panel" loading="lazy"></div><p>Stainless mixing machine for meat and dough batches.</p><a href="/contact.html">Inquire <span>↗</span></a></article>
         </div>
+        <div class="story-media"><video id="showcaseVideo" controls muted loop playsinline preload="none" poster="/assets/media/zmca-chopping-poster.jpg" aria-label="ZMCA bowl chopper chopping meat in operation"><source src="/assets/media/zmca-chopping.mp4" type="video/mp4"></video><button class="video-control" id="videoControl" type="button" aria-label="Play showcase video"><span></span> PLAY</button><div class="media-caption"><b>ZMCA / LIVE CUT</b><span>Watch the bowl chopper in action</span></div></div>
       </div>
     </section>
   </main>
