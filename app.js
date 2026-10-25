@@ -351,26 +351,63 @@
       contactStatus.append(document.createElement("br"), anchor);
     }
   };
-  contactForm?.addEventListener("submit", async (event) => {
+  /* Inquiries go straight to Messenger with a ready message: this is static
+     hosting, so there is no /api/contact server to receive a form post. */
+  contactForm?.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!contactForm.reportValidity()) return;
-    const submit = $("button[type='submit']", contactForm);
-    const payload = Object.fromEntries(new FormData(contactForm).entries());
-    payload.consent = Boolean(contactForm.elements.consent.checked);
-    setButtonLoading(submit, true, "Preparing inquiry…");
-    showContactStatus("", "Validating your equipment inquiry…");
+    const data = new FormData(contactForm);
+    if (String(data.get("website") || "").trim()) return; // honeypot filled: ignore
+    const value = (name) => String(data.get(name) || "").trim();
+    const timeline = contactForm.elements.timeline?.selectedOptions[0]?.textContent || "";
+    const lines = ["Hi ZMCA! I would like to inquire about equipment."];
+    lines.push(`Name: ${value("name")}`);
+    if (value("company")) lines.push(`Business: ${value("company")}`);
+    lines.push(`Contact: ${value("contact")}`);
+    lines.push(`Product: ${value("product")}`);
+    lines.push(`Equipment interest: ${value("interest")}`);
+    if (value("output")) lines.push(`Target output: ${value("output")}`);
+    if (timeline) lines.push(`Timeline: ${timeline}`);
+    lines.push(`Message: ${value("message")}`);
+    const text = lines.join("\n");
+    const messengerUrl = `https://m.me/zmcatrading?text=${encodeURIComponent(text)}`;
+    let opened = null;
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-      const data = await response.json();
-      if (!response.ok || !data.ok) throw new Error(data.error || "Unable to prepare inquiry");
-      const message = data.notification === "sent" ? `Inquiry ${data.reference} was submitted. You can also continue directly in Messenger.` : `Inquiry ${data.reference} is ready. Continue in Messenger to send it directly to ZMCA.`;
-      showContactStatus("success", message, data.messengerUrl);
-      // Keep the details available until the visitor has actually sent the Messenger handoff.
+      opened = window.open(messengerUrl, "_blank", "noopener,noreferrer");
     } catch (error) {
-      showContactStatus("error", error.message || "The form could not be submitted. Please message ZMCA directly.", "https://m.me/zmcatrading");
-    } finally {
-      setButtonLoading(submit, false);
+      opened = null;
     }
+    contactStatus.className = "form-status show success";
+    contactStatus.replaceChildren();
+    const intro = document.createElement("span");
+    intro.textContent = opened
+      ? "Your message is ready in Messenger. If it did not open, use the link below or copy the message."
+      : "Messenger did not open automatically. Tap the link below or copy the message.";
+    contactStatus.append(intro, document.createElement("br"));
+    lines.forEach((line, index) => {
+      const row = document.createElement("span");
+      row.textContent = line;
+      contactStatus.append(row);
+      if (index < lines.length - 1) contactStatus.append(document.createElement("br"));
+    });
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.className = "button button-primary";
+    copyButton.textContent = "Copy message";
+    copyButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        copyButton.textContent = "Copied!";
+      } catch (error) {
+        copyButton.textContent = "Copy failed, long-press the message above";
+      }
+    });
+    const anchor = document.createElement("a");
+    anchor.href = messengerUrl;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    anchor.textContent = "Continue in Messenger ↗";
+    contactStatus.append(document.createElement("br"), copyButton, document.createElement("br"), anchor);
   });
 
   const year = $("#year");
