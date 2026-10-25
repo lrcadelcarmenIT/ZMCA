@@ -208,6 +208,8 @@
     element.querySelector("a[href='#contact']")?.addEventListener("click", () => selectInterest(element.dataset.interest || ""));
     if (element.matches("a")) element.addEventListener("click", () => selectInterest(element.dataset.interest || ""));
   });
+  const machineParam = new URLSearchParams(window.location.search).get("machine");
+  if (machineParam) selectInterest(machineParam);
   function selectInterest(interest) {
     const field = interestField();
     const message = messageField();
