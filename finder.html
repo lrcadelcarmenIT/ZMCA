@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@300;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=2">
+  <link rel="stylesheet" href="/styles.css?v=3">
   <title>Machine Finder | ZMCA Machinery Trading</title>
 </head>
 <body>
@@ -33,7 +33,17 @@
       </a>
       <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation"><span></span><span></span></button>
       <div class="nav-links" id="navLinks">
-        <a href="/machines.html">Machines</a><a href="/finder.html">Machine finder</a><a href="/contact.html">Contact</a>
+        <div class="nav-item">
+          <button class="nav-parent" type="button" aria-expanded="false" aria-controls="machines-submenu">Machines <span class="caret" aria-hidden="true">▾</span></button>
+          <ul class="submenu" id="machines-submenu">
+            <li><a href="/machines.html">All machines</a></li>
+            <li><a href="/machines-meat-processing.html">Meat processing</a></li>
+            <li><a href="/machines-forming.html">Forming</a></li>
+            <li><a href="/machines-refrigeration.html">Refrigeration</a></li>
+            <li><a href="/machines-baking.html">Baking</a></li>
+            <li><a href="/machines-packaging.html">Packaging</a></li>
+          </ul>
+        </div><a href="/finder.html">Machine finder</a><a href="/contact.html">Contact</a>
       </div>
       <a class="nav-cta" href="/contact.html">Get a quote</a>
     </nav>
@@ -57,6 +67,6 @@
   </main>
 
   <footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><p class="footer-logo"><img src="/assets/media/zmca-logo-new.png" alt="ZMCA Machinery Trading" width="1499" height="550"></p><p>Commercial food-processing and packaging equipment for Philippine businesses.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="/machines.html">Machines</a><a href="/finder.html">Machine finder</a><a href="/contact.html">Contact</a></nav><div class="footer-contact"><a href="tel:+639204335014">0920 433 5014</a><p>Quezon City, Philippines</p></div></div><div class="shell footer-base"><p>© 2026 ZMCA Machinery Trading.</p></div></footer>
-  <a class="mobile-cta" href="/contact.html#contact">Inquire now <span>↗</span></a><noscript><div class="noscript">JavaScript is disabled. Contact ZMCA at <a href="tel:+639204335014">0920 433 5014</a>.</div></noscript><script src="/app.js" defer></script><script src="/main.js" defer></script>
+  <a class="mobile-cta" href="/contact.html#contact">Inquire now <span>↗</span></a><noscript><div class="noscript">JavaScript is disabled. Contact ZMCA at <a href="tel:+639204335014">0920 433 5014</a>.</div></noscript><script src="/app.js?v=2" defer></script><script src="/main.js" defer></script>
 </body>
 </html>

@@ -45,6 +45,10 @@
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Open navigation");
     navLinks.classList.remove("open");
+    $$(".nav-item.open").forEach((item) => {
+      item.classList.remove("open");
+      item.querySelector(".nav-parent")?.setAttribute("aria-expanded", "false");
+    });
   };
   menuToggle?.addEventListener("click", () => {
     const open = menuToggle.getAttribute("aria-expanded") !== "true";
@@ -53,6 +57,27 @@
     navLinks?.classList.toggle("open", open);
   });
   $$("a", navLinks || document.createElement("div")).forEach((link) => link.addEventListener("click", closeMenu));
+  /* Machines submenu: tap the Machines button to show the 5 category pages. */
+  const closeSubmenus = () => {
+    $$(".nav-item.open").forEach((item) => {
+      item.classList.remove("open");
+      item.querySelector(".nav-parent")?.setAttribute("aria-expanded", "false");
+    });
+  };
+  $$(".nav-parent").forEach((button) => button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const item = button.closest(".nav-item");
+    const willOpen = !item.classList.contains("open");
+    closeSubmenus();
+    item.classList.toggle("open", willOpen);
+    button.setAttribute("aria-expanded", String(willOpen));
+  }));
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".nav-item")) closeSubmenus();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeSubmenus();
+  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menuToggle?.getAttribute("aria-expanded") === "true") {
       closeMenu();

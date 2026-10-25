@@ -43,6 +43,18 @@ button:disabled{cursor:default;opacity:.4}
 .nav-cta:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 10px 30px var(--accent-glow)}
 .menu-toggle{display:none}
 
+/* ---------- Machines submenu (desktop dropdown, mobile expandable list) ---------- */
+.nav-item{position:relative}
+.nav-parent{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--text);font-family:var(--font-head);font-size:12px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;padding:0}
+.nav-parent .caret{display:inline-block;transition:transform .2s var(--ease)}
+.nav-item.open .nav-parent .caret{transform:rotate(180deg)}
+.submenu{list-style:none;margin:0;padding:8px 0;position:absolute;top:100%;left:-8px;min-width:230px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);display:none;z-index:101}
+.submenu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.nav-item:hover .submenu,.nav-item:focus-within .submenu,.nav-item.open .submenu{display:block}
+.nav-links .submenu a{display:block;padding:10px 18px;font-family:var(--font-body);font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--text)}
+.nav-links .submenu a::after{display:none}
+.nav-links .submenu a:hover{color:#fff;background:rgba(30,91,255,.12)}
+
 /* ---------- Buttons and pills ---------- */
 .button{min-height:50px;padding:0 26px;display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;border:1px solid transparent;font-weight:700;font-size:14px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .25s var(--ease),border-color .25s var(--ease)}
 .button:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--accent-glow)}
@@ -255,6 +267,14 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
   .nav-links a:last-child{border-bottom:0}
   .mobile-cta{position:fixed;z-index:98;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;color:#fff;background:var(--accent);box-shadow:0 10px 28px rgba(0,0,0,.5);font-weight:700;font-size:14px;white-space:nowrap;transition:transform .25s var(--ease),background-color .25s var(--ease)}
   .mobile-cta:hover{background:var(--accent-light)}
+  .nav-links{max-height:calc(100dvh - 56px);overflow-y:auto}
+  .nav-item{display:flex;flex-direction:column}
+  .nav-parent{display:flex;justify-content:space-between;align-items:center;width:100%;padding:14px 2px;border:0;border-bottom:1px solid var(--border);background:transparent;color:var(--text);font-size:17px;font-weight:500;text-align:left;letter-spacing:0;text-transform:none}
+  .submenu{position:static;list-style:none;margin:0;padding:0;display:none;flex-direction:column;background:transparent;border:0;border-radius:0;box-shadow:none;min-width:0}
+  .submenu::before{display:none}
+  .nav-item.open .submenu{display:flex}
+  .nav-links .submenu a{padding:14px 2px 14px 22px;border-bottom:1px solid var(--border);font-size:16px;font-weight:400;color:var(--muted)}
+  .nav-links .submenu li:last-child a{border-bottom:0}
 }
 @media(max-width:1100px){
   .nav-cta{display:none}
