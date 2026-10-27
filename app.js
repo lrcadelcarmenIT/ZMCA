@@ -57,7 +57,7 @@
     navLinks?.classList.toggle("open", open);
   });
   $$("a", navLinks || document.createElement("div")).forEach((link) => link.addEventListener("click", closeMenu));
-  /* Machines submenu: tap the Machines button to show the 5 category pages. */
+  /* Machines submenu: tap the Machines button to show the 6 category pages. */
   const closeSubmenus = () => {
     $$(".nav-item.open").forEach((item) => {
       item.classList.remove("open");
